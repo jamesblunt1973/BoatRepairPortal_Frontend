@@ -1,0 +1,41 @@
+<div *ngIf="loading" fxLayout="row" fxLayoutAlign="center">
+    <mat-spinner diameter="35"></mat-spinner>
+</div>
+<div fxLayout="column" fxLayoutGap="10px">
+    <mat-card class="product-list-item" *ngFor="let proposal of proposals" fxLayout="row">
+        <img [src]="proposal.job.boat.picture" />
+        <mat-card-content fxFlex="*" fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+                <p>Code: {{proposal.job.id}}</p>
+                <b class="product-name">{{proposal.job.title}}</b>
+                <p>
+                    Job created at {{proposal.job.submitDate | date}}
+                </p>
+                <p>
+                    Proposal at: {{proposal.createdDate | date}}
+                </p>
+            </div>
+            <div class="commands" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+                <mat-spinner diameter="25" *ngIf="proposal.busy"></mat-spinner>
+                <mat-chip-list>
+                    <mat-chip class="status"
+                        [ngClass]="{'error':proposal.job.isEmergency, 'success':!proposal.job.isEmergency}">
+                        Status: {{proposal.job.isEmergency ? 'Emergency' : 'Normal'}}
+                    </mat-chip>
+                </mat-chip-list>
+                <button mat-raised-button color="primary" (click)="showDesc(proposal)" [disabled]="proposal.busy">
+                    <span matPrefix class="mdi mdi-eye"></span>
+                    View details
+                </button>
+                <button mat-raised-button color="accent" (click)="updateProposal(proposal, 1)" [disabled]="proposal.busy">
+                    <span matPrefix class="mdi mdi-check"></span>
+                    Accept
+                </button>
+                <button mat-raised-button color="warn" (click)="updateProposal(proposal, 2)" [disabled]="proposal.busy">
+                    <span matPrefix class="mdi mdi-close"></span>
+                    Reject
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

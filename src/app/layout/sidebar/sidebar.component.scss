@@ -1,0 +1,15 @@
+.mat-list-item {
+  cursor: pointer;
+  color: #7894b1;
+}
+
+.mdi {
+  position: relative;
+  top: -3px;
+}
+
+.selected {
+  font-weight: bold;
+  background-color: #7894b1 !important;
+  color: #1b2a49;
+}

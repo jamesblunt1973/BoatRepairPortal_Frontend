@@ -1,0 +1,19 @@
+.title {
+  text-align: center;
+  padding: 20px 0;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.5rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.commands {
+  margin-top: 20px;
+
+  .mat-raised-button {
+    border-radius: 0;
+  }
+}

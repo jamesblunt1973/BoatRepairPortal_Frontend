@@ -1,0 +1,15 @@
+<div>
+    <h1 mat-dialog-title>{{data.job.boat.name}}</h1>
+    <div class="content" mat-dialog-content>
+        <p>{{data.job.boat.description}}</p>
+        <hr class="spacer" />
+        <h4>
+            <span class="mdi mdi-check-box-outline"></span>
+            {{data.job.title}}
+        </h4>
+        <p>{{data.job.description}}</p>
+    </div>
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
+        <button mat-raised-button color="primary" [mat-dialog-close]="true">OK</button>
+    </div>
+</div>

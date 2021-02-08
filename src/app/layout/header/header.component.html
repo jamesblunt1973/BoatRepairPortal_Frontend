@@ -1,0 +1,18 @@
+<mat-toolbar class="top" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <button mat-icon-button (click)="changeMenuBtn()">
+    <div class="hamburger" [ngClass]="menuStatus">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+  <a href="http://wiredelta.com/" target="_blank" class="home-link">
+    <img src="/assets/images/logo-32.png" />
+  </a>
+  <div fxFlex="*" fxLayout="row" fxLayoutAlign="end">
+    <button *ngIf="user" mat-icon-button (click)="logout()" class="user-icon">
+      <mat-icon class="mdi mdi-account"></mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,23 @@
+.layout-container {
+  min-height: 100vh;
+  min-width: 360px;
+}
+
+.layout-content {
+  padding: 30px;
+}
+
+mat-drawer-container {
+  max-height: 100% !important;
+  z-index: unset;
+
+  mat-drawer {
+    background-color: #1b2a49;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .layout-content {
+    padding: 10px;
+  }
+}

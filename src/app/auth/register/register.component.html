@@ -1,0 +1,47 @@
+<h1 class="title">Company Register</h1>
+<form #registerForm="ngForm" (ngSubmit)="register()">
+  <mat-form-field>
+    <input matInput
+           autofocus
+           placeholder="Full Name"
+           required
+           [(ngModel)]="model.name"
+           name="name"
+           type="text" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput
+           placeholder="Email"
+           required
+           [(ngModel)]="model.email"
+           name="email"
+           #email="ngModel"
+           type="email" />
+    <mat-error *ngIf="email.errors?.email">invalid email</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput
+           type="password"
+           placeholder="Password"
+           required
+           [(ngModel)]="model.password"
+           name="password"
+           pattern="^.{6,}$"
+           #pw="ngModel" />
+    <mat-error *ngIf="pw.errors?.pattern">password should be atleat 6 charachters long</mat-error>
+  </mat-form-field>
+  <mat-checkbox [(ngModel)]="save" name="save">Remember me</mat-checkbox>
+  <div fxLayout="column" fxLayoutAlign="space-between" class="commands">
+    <button mat-raised-button color="accent" [disabled]="!registerForm.valid || loading">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        Register
+        <mat-spinner matPrefix *ngIf="loading" diameter="15"></mat-spinner>
+      </div>
+    </button>
+  </div>
+  <div class="commands"fxLayout="row" fxLayoutAlign="space-between center">
+    <a class="btn" routerLink="/auth/login">Login</a>
+    <a href="#">Terms & Conditions</a>
+  </div>
+
+</form>
